@@ -60,7 +60,7 @@ the text-to-speech audio clip generated using ```pyttsx3``` and the audio wavefo
 >>> tts2.generate_tts("tts_gtts.mp3")
 >>> tts2.generate_waveform("waveform_gtts.png")
 ```
-```gtts``` requires internet connection. ttshandler will raise a ```GTTSConnectonError``` if gtts fails to connect to Google's API fails.
+```gtts``` requires internet connection. ttshandler will raise a ```GTTSConnectonError``` if ```gtts``` fails to connect to Google's text-to-speech API.
 
 
 # Detailed documentation
