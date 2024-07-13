@@ -121,7 +121,7 @@ Functions defined here:
   For more details, refer to the respective documentations of [Pyttsx3](https://pyttsx3.readthedocs.io/en/latest/) or [GTTS](https://gtts.readthedocs.io/en/latest/).
 
 * ```def generate_tts(self, output_file='')```    
-    Generate the TTS output. ```-output_file``` accepts an absolute path for saving the TTS. If ```-output_file``` is not specified, TTS is generated in the system's temp directory. Currently for ```api='pyttsx3'``` only .wav files are generated and for ```api='gtts'``` only .mp3 files are generated. If the output filename does not end with either of these, the respective file extensions are appended to the output filename (.wav for pyttsx3 and .mp3 for gtts).
+    Generate the TTS output. ```-output_file``` accepts an absolute path for saving the TTS. If ```-output_file``` is not specified, TTS is generated in the system's temp directory. Currently for ```api='pyttsx3'``` only .wav files are generated and for ```api='gtts'``` only .mp3 files are generated. If the output filename does not end with either of these, (case-insensitive) the respective file extensions are appended to the output filename (.wav for pyttsx3 and .mp3 for gtts). This behaviour may be updated in the future for support of multiple audio file types.
 
 * ```def generate_waveform(self, output_file, **kwargs)```    
     Generate a pictorial wave form of the TTS audio. ```-output_file``` accepts an absolute file path for saving the waveform as a PNG file. If the file has extension other than .png (case-insensitive), .png would be appended to the file and saved as PNG.
