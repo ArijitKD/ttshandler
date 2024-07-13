@@ -109,13 +109,25 @@ Functions defined here:
 
 * ```def set_property(self, **properties)```    
     Set the speech properties. Pyttsx3 supported options are ```-rate```, ```-volume``` and ```-voice```.
-  * ```-rate``` : an integer from 50 to 300 denoting the number of words per minute (default=150);
-  * ```-volume``` : a float value from 0.0 to 1.0 that sets the volume of the speech (default=1.0);
-  * ```-voice``` : an integer denoting the index of the voice as returned by engine.getProperty('voices') (default=0 [the first voice]).    
+  * ```-rate``` : an integer from 50 to 300 denoting the number of words per minute (default=```150```);
+  * ```-volume``` : a float value from 0.0 to 1.0 that sets the volume of the speech (default=```1.0```);
+  * ```-voice``` : an integer denoting the index of the voice as returned by ```engine.getProperty('voices')``` (default=```0``` [the first voice]).    
 
   GTTS supported options are ```-tld```, ```-lang``` and ```-slow```.
-  * ```-tld``` : set the top-level domain used by GTTS for non-local accents (default='com' [local accent]);
-  * ```-lang``` : set the language for TTS (default='en'). Both IETF language tags and language names are supported, but to avoid case-sensitivity issues use the IETF tags.
-  * ```-slow``` : boolean to set whether the speech will be normal or slowed (default=False).    
+  * ```-tld``` : set the top-level domain used by GTTS for non-local accents (default=```'com'``` [local accent]);
+  * ```-lang``` : set the language for TTS (default=```'en'```). Both IETF language tags and language names are supported, but to avoid case-sensitivity issues use the IETF tags.
+  * ```-slow``` : boolean to set whether the speech will be normal or slowed (default=```False```).    
   
-  For more details, refer to the respective documentations of [Pyttsx3](https://pyttsx3.readthedocs.io/en/latest/) or [GTTS](https://gtts.readthedocs.io/en/latest/). 
+  For more details, refer to the respective documentations of [Pyttsx3](https://pyttsx3.readthedocs.io/en/latest/) or [GTTS](https://gtts.readthedocs.io/en/latest/).
+
+* ```def generate_tts(self, output_file='')```    
+    Generate the TTS output. ```-output_file``` accepts an absolute path for saving the TTS. If ```-output_file``` is not specified, TTS is generated in the system's temp directory. Currently for ```api='pyttsx3'``` only .wav files are generated and for ```api='gtts'``` only .mp3 files are generated. If the output filename does not end with either of these, the respective file extensions are appended to the output filename (.wav for pyttsx3 and .mp3 for gtts).
+
+* ```def generate_waveform(self, output_file, **kwargs)```    
+    Generate an pictorial wave form of the TTS audio. ```-output_file``` accepts an absolute file path for saving the waveform as a PNG file. If the file has extension other than .png (case-insensitive), .png would be appended to the file and saved as PNG.
+    Accepted keyword arguments are:
+  * ```-dimensions``` : a string in the form of ```"<width>x<length>"``` specifying the dimensions of the output image (default="800x600");
+  * ```-fgcolor``` : a color in RGBA format (eg: ```'#060e32'```) or any other valid color name that is recognized by ```matplotlib.pyplot``` (default=```'skyblue'```);
+  * ```-bgcolor``` : same as ```-fgcolor``` (default=```'white'```).    
+  
+  This function will raise a ```TTSNotGeneratedError``` if it is executed before running ```generate_tts()```.
