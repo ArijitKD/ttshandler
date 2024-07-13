@@ -64,6 +64,7 @@ the text-to-speech audio clip generated using ```pyttsx3``` and the audio wavefo
 
 
 # Detailed documentation
+
 ## Directory structure of package ```ttshandler```
 ```
 ttshandler/
@@ -72,4 +73,30 @@ ttshandler/
     |____    ttsexceptions.py
     |____    ttshandler.py
 ```
+
+## Module ```__init__.py```
+Imports the main module ```ttshandler.py```.
+
+## Module ```ttsexceptions.py```
+Exception that are raised from the TTSHandler class are defined here. These are:
+
+```class UnknownAPIError(Exception)```
+* Raised when the API specified while initializing TTSHandler is not one of 'pyttsx3' or 'gtts'.
+
+```class TTSPropertyError(Exception)```
+* Raised while attempting to set an invalid or unsupported property for an initialized API.
+
+```class TTSNotGeneratedError(Exception)```
+* Raised when attempting to generate a speech waveform before the TTS has been generated.
+
+```class GTTSConnectionError(Exception)```
+* Raised when ```gtts.tts.gTTSError``` is raised, which occurs mainly due to connection issues.
+
+```class Pyttsx3InitializationError(Exception)```
+* Raised when Pyttsx3 could not initialize the specified TTS engine.
+
+```class NoFFmpegError(Exception)```
+* Raised when FFmpeg is not installed, which is required for audio format conversions.
+
+## Module ```ttshandler.py```
 
