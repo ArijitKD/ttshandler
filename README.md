@@ -99,4 +99,23 @@ Exception that are raised from the TTSHandler class are defined here. These are:
 * Raised when FFmpeg is not installed, which is required for audio format conversions.
 
 ## Module ```ttshandler.py```
+This is the main module containing the TTSHandler class.
 
+```class TTSHandler```    
+Functions defined here:
+
+* ```def __init__(self, text, api, pyttsx3engine='default')```  
+    Initialize the TTSHandler class. ```-api``` must be either ```'pyttsx3'``` or ```'gtts'``` (only these are supported). ```-text``` should be a string which will be converted into speech. An optional keyword argument ```-pyttsx3engine``` may be specified in case a non-default TTS engine is desired to be used. This option is ignored if ```api='gtts'```.
+
+* ```def set_property(self, **properties)```    
+    Set the speech properties. Pyttsx3 supported options are ```-rate```, ```-volume``` and ```-voice```.
+  * ```-rate``` : an integer from 50 to 300 denoting the number of words per minute (default=150);
+  * ```-volume``` : a float value from 0.0 to 1.0 that sets the volume of the speech (default=1.0);
+  * ```-voice``` : an integer denoting the index of the voice as returned by engine.getProperty('voices') (default=0 [the first voice]).    
+
+  GTTS supported options are ```-tld```, ```-lang``` and ```-slow```.
+  * ```-tld``` : set the top-level domain used by GTTS for non-local accents (default='com' [local accent]);
+  * ```-lang``` : set the language for TTS (default='en'). Both IETF language tags and language names are supported, but to avoid case-sensitivity issues use the IETF tags.
+  * ```-slow``` : boolean to set whether the speech will be normal or slowed (default=False).    
+  
+  For more details, refer to the respective documentations of [Pyttsx3](https://pyttsx3.readthedocs.io/en/latest/) or [GTTS](https://gtts.readthedocs.io/en/latest/). 
