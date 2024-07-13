@@ -24,14 +24,14 @@ class TTSNotGeneratedError(Exception):
 
 
 class GTTSConnectionError(Exception):
-    '''Raised when gtts.tts.GTTSError is raised'''
+    '''Raised when gtts.tts.gTTSError is raised, which occurs mainly due to connection issues'''
     def __init__(self, message=""):
         super().__init__(message)
 
 
 
 class Pyttsx3InitializationError(Exception):
-    '''Raised when the Pyttsx3 could not initialize the specified TTS engine'''
+    '''Raised when Pyttsx3 could not initialize the specified TTS engine'''
     def __init__(self, message=""):
         super().__init__(message)
 
