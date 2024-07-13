@@ -145,7 +145,7 @@ class TTSHandler:
 
 
     def generate_waveform(self, output_file, **kwargs):
-        '''Generate an pictorial wave form of the tts audio. -output_file accepts an absolute file path for saving the waveform as a PNG file. If the file has extension other
+        '''Generate a pictorial wave form of the tts audio. -output_file accepts an absolute file path for saving the waveform as a PNG file. If the file has extension other
            than .png (case-insensitive), .png would be appended to the file and saved as PNG. Accepted keyword arguments are:
            *    -dimensions --> a string in the form of "<width>x<length>" specifying the dimensions of the output image (default="800x600");
            *    -fgcolor --> a color in RGBA format (eg: '#060e32') or any other valid color name that is recognized by matplotlib.pyplot (default='skyblue');
