@@ -131,3 +131,11 @@ Functions defined here:
   * ```-bgcolor``` : same as ```-fgcolor``` (default=```'white'```).    
   
   This function will raise a ```TTSNotGeneratedError``` if it is executed before running ```generate_tts()```.
+
+
+# TODO
+* Add support for saving TTS audio clips in various other file types besides .mp3 and .wav.
+
+
+# License
+ttshandler is available under the MIT License.
