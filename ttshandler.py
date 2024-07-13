@@ -116,8 +116,9 @@ class TTSHandler:
 
     def generate_tts(self, output_file=''):
         '''Generate the TTS output. -output_file accepts an absolute file path for saving the TTS. If -output_file is not specified, TTS is generated in the
-        system's temp directory. Currently for api='pyttsx3' only WAV files are generated and for api='gtts' MP3 files are generated. This behaviour may be
-        updated in the future for support of multiple audio file types.'''
+        system's temp directory. Currently for api='pyttsx3' only WAV files are generated and for api='gtts' MP3 files are generated. If the output filename
+        does not end with either of these (case-insensitive), the respective file extensions are appended to the output filename (.wav for pyttsx3 and .mp3
+        for gtts). This behaviour may be updated in the future for support of multiple audio file types.'''
 
         if (output_file == ''):
             output_file = path.join(gettempdir(), "temp%d"%int(time.time()))
