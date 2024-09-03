@@ -138,7 +138,7 @@ Functions defined here:
 
 
 # License
-ttshandler is available under the MIT License.
-
-
-#### [🔗 ttshandler at PyPI](https://pypi.org/project/ttshandler/)
+ttshandler is available under the MIT License.    
+    
+    
+### 🔗 [ttshandler at PyPI](https://pypi.org/project/ttshandler/)
